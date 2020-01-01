@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">Mobile Project</string>
+	<string name="my_string">My String</string>
+	<string name="button">My Button !!</string>
+</resources>
