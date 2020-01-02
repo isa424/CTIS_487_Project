@@ -1,0 +1,14 @@
+package com.example.mobileproject;
+
+public class Lecture {
+	private final String name, teacher, code, classroom;
+	private final LectureDate dates;
+
+	public Lecture(String name, String teacher, String code, String classroom, LectureDate dates) {
+		this.name = name;
+		this.teacher = teacher;
+		this.code = code;
+		this.classroom = classroom;
+		this.dates = dates;
+	}
+}
