@@ -11,4 +11,15 @@ public class Lecture {
 		this.classroom = classroom;
 		this.dates = dates;
 	}
+
+	@Override
+	public String toString() {
+		return "Lecture{" +
+				"name='" + name + '\'' +
+				", teacher='" + teacher + '\'' +
+				", code='" + code + '\'' +
+				", classroom='" + classroom + '\'' +
+				", dates=" + dates +
+				'}';
+	}
 }
