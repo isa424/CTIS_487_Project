@@ -1,6 +1,7 @@
 package com.example.mobileproject;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,17 +51,36 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         myRecyclerViewItemHolder.courseName.setText(sm.getName());
         myRecyclerViewItemHolder.classHours.setText(sm.getHours());
-        if(lastId < 0 || recyclerItemValues.get(lastId).getDates().day != recyclerItemValues.get(i).getDates().day){
-            if(sm.getDates().day ==(1)){dayOfWeek = "Mon";}
-            if(sm.getDates().day ==(2)){dayOfWeek = "Tue";}
-            if(sm.getDates().day ==(3)){dayOfWeek = "Wed";}
-            if(sm.getDates().day ==(4)){dayOfWeek = "Thu";}
-            if(sm.getDates().day ==(5)){dayOfWeek = "Fri";}
-            if(sm.getDates().day ==(6)){dayOfWeek = "Sat";}
-            if(sm.getDates().day ==(7)){dayOfWeek = "Sun";}
 
+        if (lastId < 0 || recyclerItemValues.get(lastId).getDates().day != sm.getDates().day) {
+            switch (sm.getDates().day) {
+                case 1:
+                    dayOfWeek = "Mon";
+                    break;
+                case 2:
+                    dayOfWeek = "Tue";
+                    break;
+                case 3:
+                    dayOfWeek = "Wed";
+                    break;
+                case 4:
+                    dayOfWeek = "Thu";
+                    break;
+                case 5:
+                    dayOfWeek = "Fri";
+                    break;
+                case 6:
+                    dayOfWeek = "Sat";
+                    break;
+                case 7:
+                    dayOfWeek = "Sun";
+                    break;
+            }
+
+            Log.d("mydebugDay", dayOfWeek);
             myRecyclerViewItemHolder.day.setText(dayOfWeek);
         }
+
         lastId = i;
     }
 

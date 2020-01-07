@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">Mobile Project</string>
+	<string name="app_name">My Courses</string>
 	<string name="my_string">My String</string>
 	<string name="button">My Button !!</string>
 	<string name="btn_add_lecture">Add Lecture</string>

@@ -55,4 +55,9 @@ public class AddLectureActivity extends AppCompatActivity {
 		setResult(RESULT_OK, i);
 		finish();
 	}
+
+	public void cancel(View view) {
+		setResult(RESULT_CANCELED);
+		finish();
+	}
 }

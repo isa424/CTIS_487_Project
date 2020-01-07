@@ -24,25 +24,25 @@
 		android:id="@+id/add_lecture_lecture_name"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:hint="@string/add_lecture_lecture_name"
-		android:inputType="text"
-		android:importantForAutofill="no" />
+		android:importantForAutofill="no"
+		android:inputType="text" />
 
 	<EditText
 		android:id="@+id/add_lecture_teacher_name"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:hint="@string/add_lecture_teacher_name"
-		android:inputType="text"
-		android:importantForAutofill="no" />
+		android:importantForAutofill="no"
+		android:inputType="text" />
 
 	<EditText
 		android:id="@+id/add_lecture_code"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:hint="@string/add_lecture_course_code"
 		android:importantForAutofill="no"
 		android:inputType="text" />
@@ -51,7 +51,7 @@
 		android:id="@+id/add_lecture_classroom"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:hint="@string/add_lecture_classroom"
 		android:importantForAutofill="no"
 		android:inputType="text" />
@@ -59,7 +59,7 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:orientation="horizontal">
 
 		<TextView
@@ -80,7 +80,7 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:orientation="horizontal">
 
 		<TextView
@@ -108,7 +108,7 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_margin="5dp"
 		android:orientation="horizontal">
 
 		<TextView
@@ -123,26 +123,36 @@
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:entries="@array/hours"
-			/>
+			android:entries="@array/hours" />
 
 		<Spinner
 			android:id="@+id/add_lecture_endMinute"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:entries="@array/minutes"
-			/>
+			android:entries="@array/minutes" />
 	</LinearLayout>
 
 	<Button
 		android:id="@+id/button"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_margin="10dp"
+		android:layout_height="30dp"
+		android:layout_margin="5dp"
 		android:background="?attr/colorPrimary"
-		android:text="@string/add_lecture_insert"
 		android:onClick="addLecture"
-		android:textColor="@color/cardview_light_background" />
+		android:text="@string/add_lecture_insert"
+		android:textColor="@color/cardview_light_background"
+		android:textSize="12sp" />
+
+	<Button
+		android:id="@+id/button2"
+		android:layout_width="match_parent"
+		android:layout_height="30dp"
+		android:layout_margin="5dp"
+		android:background="@android:color/holo_red_dark"
+		android:text="@android:string/cancel"
+		android:textColor="@color/cardview_light_background"
+		android:onClick="cancel"
+		android:textSize="12sp" />
 
 </LinearLayout>

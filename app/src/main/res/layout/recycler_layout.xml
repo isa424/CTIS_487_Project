@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -20,40 +20,42 @@
 
             <TextView
                 android:id="@+id/courseName"
-                android:layout_width="244dp"
-                android:layout_height="49dp"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="TextView"
-                android:textSize="24sp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.784"
+                app:layout_constraintHorizontal_bias="0.785"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/classHours"
-                android:layout_width="244dp"
-                android:layout_height="49dp"
+                android:layout_width="242dp"
+                android:layout_height="23dp"
                 android:text="TextView"
-                android:textSize="24sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.784"
+                app:layout_constraintHorizontal_bias="0.803"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/courseName"
-                app:layout_constraintVertical_bias="0.354" />
+                app:layout_constraintVertical_bias="0.234" />
 
             <TextView
                 android:id="@+id/tvDay"
-                android:layout_width="101dp"
-                android:layout_height="49dp"
-                android:textSize="24sp"
+                android:layout_width="69dp"
+                android:layout_height="23dp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/courseName"
-                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintHorizontal_bias="0.863"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.278" />
+                app:layout_constraintVertical_bias="0.226" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

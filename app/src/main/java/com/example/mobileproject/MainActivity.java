@@ -1,20 +1,17 @@
 package com.example.mobileproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,9 +19,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 	String jsonStr = null;
@@ -104,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 		startActivityForResult(addLectureIntent, 1);
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == 1) {
@@ -127,11 +125,36 @@ public class MainActivity extends AppCompatActivity {
 
 					LectureDB.insert(dbHelper, l);
 					lectures = (ArrayList<Lecture>) LectureDB.getAllLectures(dbHelper);
+					Log.d("mydebug", String.valueOf(lectures.size()));
 
-					layoutManager = new LinearLayoutManager(MainActivity.this);
-					layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-					recyclerLectures.setLayoutManager(layoutManager);
-					recyclerLectures.hasFixedSize();
+					lectures.sort(new Comparator<Lecture>() {
+						@Override
+						public int compare(Lecture o1, Lecture o2) {
+							LectureDate d1 = o1.getDate(),
+								d2 = o2.getDate();
+
+							if (d1.day > d2.day) {
+								return 1;
+							} else if (d1.day < d2.day) {
+								return -1;
+							} else if (d1.startHour > d2.startHour) {
+								return 1;
+							} else if (d1.startHour < d2.startHour) {
+								return -1;
+							} else if (d1.startMinute > d2.startMinute) {
+								return 1;
+							} else if (d1.startMinute < d2.startMinute) {
+								return -1;
+							} else {
+								return 0;
+							}
+						}
+					});
+
+//					layoutManager = new LinearLayoutManager(MainActivity.this);
+//					layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//					recyclerLectures.setLayoutManager(layoutManager);
+//					recyclerLectures.hasFixedSize();
 					adapter = new RecyclerViewAdapter(MainActivity.this, lectures);
 					recyclerLectures.setAdapter(adapter);
 					Log.d("mydebug", l.test());
