@@ -30,13 +30,26 @@ public class LectureDB {
 		//Cursor cursor  db.getAllRecordsMethod2("SELECT * FROM "+TABLE_NAME, null)
 		List<Lecture> data = new ArrayList<>();
 		Lecture pro = null;
+		LectureDate date = null;
 		while (cursor.moveToNext()) {
 			int id = cursor.getInt(0);
 			String name = cursor.getString(1);
-			double price = cursor.getDouble(2);
+			String teacher = cursor.getString(2);
+			String code = cursor.getString(3);
+			String classroom = cursor.getString(4);
+			int day = cursor.getInt(5);
+			int startHour = cursor.getInt(6);
+			int startMinute = cursor.getInt(7);
+			int endHour = cursor.getInt(8);
+			int endMinute = cursor.getInt(9);
 
-//			pro = new Lecture(id, name, price);
-//			data.add(pro);
+			try {
+				date = new LectureDate(day, startHour, startMinute, endHour, endMinute);
+				pro = new Lecture(name, teacher, code, classroom, date);
+				data.add(pro);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return data;
 	}

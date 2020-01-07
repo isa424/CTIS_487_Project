@@ -18,6 +18,9 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewItemHolder> {
     private Context context;
     private ArrayList<Lecture> recyclerItemValues;
+    MainActivity ma;
+    int lastId = -1;
+    String dayOfWeek;
 
     //Custom Dialog
     String courseCode, className, teacherName;
@@ -27,6 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public RecyclerViewAdapter(Context context, ArrayList<Lecture> values) {
         this.context = context;
         this.recyclerItemValues = values;
+        ma = (MainActivity)context;
     }
 
     @NonNull
@@ -44,8 +48,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull RecyclerViewItemHolder myRecyclerViewItemHolder, int i) {
         final Lecture sm = recyclerItemValues.get(i);
 
-        myRecyclerViewItemHolder.courseCode.setText(sm.getName());
-        myRecyclerViewItemHolder.classHours.setText(sm.getDates());
+        myRecyclerViewItemHolder.courseName.setText(sm.getName());
+        myRecyclerViewItemHolder.classHours.setText(sm.getHours());
+        if(lastId < 0 || recyclerItemValues.get(lastId).getDates().day != recyclerItemValues.get(i).getDates().day){
+            if(sm.getDates().day ==(1)){dayOfWeek = "Mon";}
+            if(sm.getDates().day ==(2)){dayOfWeek = "Tue";}
+            if(sm.getDates().day ==(3)){dayOfWeek = "Wed";}
+            if(sm.getDates().day ==(4)){dayOfWeek = "Thu";}
+            if(sm.getDates().day ==(5)){dayOfWeek = "Fri";}
+            if(sm.getDates().day ==(6)){dayOfWeek = "Sat";}
+            if(sm.getDates().day ==(7)){dayOfWeek = "Sun";}
+
+            myRecyclerViewItemHolder.day.setText(dayOfWeek);
+        }
+        lastId = i;
     }
 
     @Override
@@ -54,13 +70,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     class RecyclerViewItemHolder extends RecyclerView.ViewHolder {
-        TextView courseCode, classHours;
+        TextView courseName, classHours, day;
 
         public RecyclerViewItemHolder(@NonNull View itemView) {
             super(itemView);
-            courseCode  = itemView.findViewById(R.id.courseCode);
+            courseName  = itemView.findViewById(R.id.courseName);
             classHours = itemView.findViewById(R.id.classHours);
+            day = itemView.findViewById(R.id.tvDay);
 
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    final Lecture lecture = recyclerItemValues.get(getLayoutPosition());
+                    ma.displayDialog(getLayoutPosition(), lecture );
+                    return false;
+                }
+            });
         }
     }
 }

@@ -63,11 +63,11 @@
 		app:layout_constraintTop_toTopOf="@+id/guideline2"
 		app:layout_constraintVertical_bias="1.0" />
 
-	<androidx.constraintlayout.widget.Guideline
-		android:id="@+id/guideline2"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		app:layout_constraintGuide_begin="380dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="64dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,20 @@
 package com.example.mobileproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,15 +22,20 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 	String jsonStr = null;
 	private ArrayList<Lecture> lectures = new ArrayList<>();
+	Dialog customDialog;
 	TopFragment topFragment;
 	RecyclerView recyclerLectures;
 	RecyclerViewAdapter adapter;
 	LinearLayoutManager layoutManager;
+	TextView tvName, tvTeacher, tvCode, tvClassroom, tvDate;
+
 	BottomFragment bottomFragment;
 	Intent addLectureIntent;
 	DatabaseHelper dbHelper;
@@ -59,16 +70,33 @@ public class MainActivity extends AppCompatActivity {
 		LectureSys.prepareData();
 
 //		Log.d("MyDebug", String.valueOf(recyclerLectures));
-		layoutManager = new LinearLayoutManager(this);
-		layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-		recyclerLectures.setLayoutManager(layoutManager);
-		recyclerLectures.hasFixedSize();
-		adapter = new RecyclerViewAdapter(this, LectureSys.getLectures());
-		recyclerLectures.setAdapter(adapter);
 
 		jsonStr = loadFileFromAssets("lectures.json");
 
 		new GetLecturesJSON().execute();
+	}
+
+	public void displayDialog(int selectedPoistion, Lecture lecture ){
+		//Album selectedalbum = albumList.get(selectedPoistion);
+		final Lecture selectedLecture = lecture;
+
+		customDialog = new Dialog(this);
+		customDialog.setContentView(R.layout.dialog);
+		customDialog.setTitle("Custom Dialog");
+
+		tvName = (TextView) customDialog.findViewById(R.id.tvName);
+		tvTeacher =(TextView) customDialog.findViewById(R.id.tvTeacher);
+		tvCode = (TextView) customDialog.findViewById(R.id.tvCode);
+		tvClassroom = (TextView) customDialog.findViewById(R.id.tvClassroom);
+		tvDate = (TextView) customDialog.findViewById(R.id.tvDates);
+
+		tvName.setText(lecture.getName());
+		tvTeacher.setText(lecture.getTeacher());
+		tvCode.setText(lecture.getCode());
+	tvClassroom.setText(lecture.getClassroom());
+		tvDate.setText(lecture.getDates().toString());
+
+		customDialog.show();
 	}
 
 	public void openAddLectureActivity(View view) {
@@ -98,6 +126,14 @@ public class MainActivity extends AppCompatActivity {
 					);
 
 					LectureDB.insert(dbHelper, l);
+					lectures = (ArrayList<Lecture>) LectureDB.getAllLectures(dbHelper);
+
+					layoutManager = new LinearLayoutManager(MainActivity.this);
+					layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+					recyclerLectures.setLayoutManager(layoutManager);
+					recyclerLectures.hasFixedSize();
+					adapter = new RecyclerViewAdapter(MainActivity.this, lectures);
+					recyclerLectures.setAdapter(adapter);
 					Log.d("mydebug", l.test());
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -188,6 +224,13 @@ public class MainActivity extends AppCompatActivity {
 				for (int i = 0; i < lectures.size(); i++) {
 					LectureDB.insert(dbHelper, lectures.get(i));
 				}
+
+				layoutManager = new LinearLayoutManager(MainActivity.this);
+				layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+				recyclerLectures.setLayoutManager(layoutManager);
+				recyclerLectures.hasFixedSize();
+				adapter = new RecyclerViewAdapter(MainActivity.this, lectures);
+				recyclerLectures.setAdapter(adapter);
 			}
 
 //			pb.setVisibility(View.INVISIBLE);

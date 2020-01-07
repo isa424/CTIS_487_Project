@@ -3,7 +3,7 @@ package com.example.mobileproject;
 import java.util.Objects;
 
 public class LectureDate implements Comparable {
-	public final Integer day,
+	public final int day,
 		startHour,
 		startMinute,
 		endHour,
@@ -84,7 +84,7 @@ public class LectureDate implements Comparable {
 
 	@Override
 	public String toString() {
-		return startHour + " " + startMinute + " - " + endHour + " "  + endMinute;
+        return startHour + ":"+ startMinute + " - " + endHour  + ":" + endMinute;
 	}
 
 	public String test() {

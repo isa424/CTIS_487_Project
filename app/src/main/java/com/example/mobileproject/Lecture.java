@@ -18,8 +18,8 @@ public class Lecture implements Serializable {
 		return name;
 	}
 
-	public String getDates() {
-		return dates.toString();
+	public LectureDate getDates() {
+		return dates;
 	}
 
 	public LectureDate getDate() {
@@ -34,8 +34,16 @@ public class Lecture implements Serializable {
 		return code;
 	}
 
+	public String getClassroom() {
+		return classroom;
+	}
+
 	public String getRoom() {
 		return classroom;
+	}
+
+	public String getHours() {
+		return dates.startHour + ":" + dates.startMinute + " " + dates.endHour + ":" + dates.endMinute;
 	}
 
 	@Override

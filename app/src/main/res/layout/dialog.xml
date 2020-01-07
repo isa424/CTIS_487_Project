@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="180dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTeacher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName1"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:text="Course Name :"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvTeacher"
+        app:layout_constraintEnd_toStartOf="@+id/tvName"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTeacher"
+        android:layout_width="180dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvTeacher1"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:text="Teacher Name :"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvCode"
+        app:layout_constraintEnd_toStartOf="@+id/tvTeacher"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName1" />
+
+    <TextView
+        android:id="@+id/tvCode"
+        android:layout_width="179dp"
+        android:layout_height="38dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvClassroom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeacher" />
+
+    <TextView
+        android:id="@+id/tvCode1"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:text="Course Code :"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvClassroom"
+        app:layout_constraintEnd_toStartOf="@+id/tvCode"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeacher" />
+
+    <TextView
+        android:id="@+id/tvClassroom"
+        android:layout_width="180dp"
+        android:layout_height="38dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCode" />
+
+    <TextView
+        android:id="@+id/tvClassroom1"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:text="Class Room :"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvDates"
+        app:layout_constraintEnd_toStartOf="@+id/tvClassroom"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCode" />
+
+    <TextView
+        android:id="@+id/tvDates"
+        android:layout_width="180dp"
+        android:layout_height="36dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClassroom" />
+
+    <TextView
+        android:id="@+id/tvDates1"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:text="Time :"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvDates"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClassroom" />
+</androidx.constraintlayout.widget.ConstraintLayout>

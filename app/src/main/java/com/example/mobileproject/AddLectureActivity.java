@@ -26,6 +26,11 @@ public class AddLectureActivity extends AppCompatActivity {
 		spStartMinute = findViewById(R.id.add_lecture_startMinute);
 		spEndHour = findViewById(R.id.add_lecture_endHour);
 		spEndMinute = findViewById(R.id.add_lecture_endMinute);
+
+		spStartHour.setSelection(8);
+		spStartMinute.setSelection(40);
+		spEndHour.setSelection(10);
+		spEndMinute.setSelection(30);
 	}
 
 	public void addLecture(View view) {
