@@ -84,12 +84,6 @@ public class LectureDate implements Comparable {
 
 	@Override
 	public String toString() {
-		return "LectureDate{" +
-				"day=" + day +
-				", startHour=" + startHour +
-				", startMinute=" + startMinute +
-				", endHour=" + endHour +
-				", endMinute=" + endMinute +
-				'}';
+		return startHour + startMinute + " - " + endHour  + endMinute;
 	}
 }

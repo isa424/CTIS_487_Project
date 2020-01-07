@@ -1,6 +1,14 @@
 package com.example.mobileproject;
 
 public class Lecture {
+	public String getName() {
+		return name;
+	}
+
+	public String getDates() {
+		return dates.toString();
+	}
+
 	private final String name, teacher, code, classroom;
 	private final LectureDate dates;
 
@@ -11,6 +19,8 @@ public class Lecture {
 		this.classroom = classroom;
 		this.dates = dates;
 	}
+
+
 
 	@Override
 	public String toString() {
