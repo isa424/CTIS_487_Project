@@ -1,14 +1,8 @@
 package com.example.mobileproject;
 
-public class Lecture {
-	public String getName() {
-		return name;
-	}
+import java.io.Serializable;
 
-	public String getDates() {
-		return dates.toString();
-	}
-
+public class Lecture implements Serializable {
 	private final String name, teacher, code, classroom;
 	private final LectureDate dates;
 
@@ -20,7 +14,29 @@ public class Lecture {
 		this.dates = dates;
 	}
 
+	public String getName() {
+		return name;
+	}
 
+	public String getDates() {
+		return dates.toString();
+	}
+
+	public LectureDate getDate() {
+		return this.dates;
+	}
+
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getRoom() {
+		return classroom;
+	}
 
 	@Override
 	public String toString() {
@@ -30,6 +46,16 @@ public class Lecture {
 				", code='" + code + '\'' +
 				", classroom='" + classroom + '\'' +
 				", dates=" + dates +
+				'}';
+	}
+
+	public String test() {
+		return "Lecture{" +
+				"name='" + name + '\'' +
+				", teacher='" + teacher + '\'' +
+				", code='" + code + '\'' +
+				", classroom='" + classroom + '\'' +
+				", dates=" + dates.test() +
 				'}';
 	}
 }

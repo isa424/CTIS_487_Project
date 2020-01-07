@@ -2,4 +2,14 @@
 	<string name="app_name">Mobile Project</string>
 	<string name="my_string">My String</string>
 	<string name="button">My Button !!</string>
+	<string name="btn_add_lecture">Add Lecture</string>
+	<string name="add_lecture_lecture_name">Lecture Name</string>
+	<string name="add_lecture_teacher_name">Teacher\'s Name</string>
+	<string name="add_lecture_insert">Add Lecture</string>
+	<string name="add_lecture_new_lecture">ADD NEW LECTURE</string>
+	<string name="add_lecture_day_of_week">Day of Week</string>
+	<string name="add_lecture_start_time">Start Time</string>
+	<string name="add_lecture_end_time">End Time</string>
+	<string name="add_lecture_course_code">Course Code</string>
+	<string name="add_lecture_classroom">Classroom</string>
 </resources>

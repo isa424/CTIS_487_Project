@@ -1,0 +1,37 @@
+{
+	"lectures": [
+		{
+			"name": "Introduction to Programming",
+			"teacher": "Burcu Liman",
+			"code": "151",
+			"classroom": "CE106",
+			"day": 1,
+			"start_hour": 8,
+			"start_minute": 40,
+			"end_hour": 10,
+			"end_minute": 30
+		},
+		{
+			"name": "Discrete Math",
+			"teacher": "Duygu Albayrak",
+			"code": "163",
+			"classroom": "CE116",
+			"day": 3,
+			"start_hour": 10,
+			"start_minute": 40,
+			"end_hour": 12,
+			"end_minute": 30
+		},
+		{
+			"name": "Object Oriented Programming",
+			"teacher": "Serpil Tin",
+			"code": "221",
+			"classroom": "CTISL-04",
+			"day": 5,
+			"start_hour": 15,
+			"start_minute": 40,
+			"end_hour": 17,
+			"end_minute": 30
+		}
+	]
+}
