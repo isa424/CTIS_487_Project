@@ -20,8 +20,11 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 	String jsonStr = null;
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 	RecyclerView recyclerLectures;
 	RecyclerViewAdapter adapter;
 	LinearLayoutManager layoutManager;
-	TextView tvName, tvTeacher, tvCode, tvClassroom, tvDate;
+	TextView tvName, tvTeacher, tvCode, tvClassroom, tvDate, tvTodaysDate;
 
 	BottomFragment bottomFragment;
 	Intent addLectureIntent;
@@ -50,9 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
 		if (topFragment == null) {
 			topFragment = (TopFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentTop);
+
 		}
 		if (bottomFragment == null)
 			bottomFragment = (BottomFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentBottom);
+
+		String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+		tvTodaysDate = findViewById(R.id.tvTodaysDate);
+		tvTodaysDate.setText("Today's Date: " + date.toString());
 
 //		bottomFragment = new BottomFragment();
 //		Bundle args = new Bundle();

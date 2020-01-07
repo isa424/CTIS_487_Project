@@ -6,13 +6,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class TopFragment extends Fragment {
+    TextView tvTodaysDate;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -21,6 +27,7 @@ public class TopFragment extends Fragment {
 
 
         return inflater.inflate(R.layout.fragment_top, container, false);
+
     }
 
 
